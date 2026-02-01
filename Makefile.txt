@@ -1,0 +1,18 @@
+# Compiler and flags
+CC = gcc
+CFLAGS = -Wall
+
+all: main
+
+# Linking the final executable
+main: front.o 
+	$(CC) $(CFLAGS) -o main front.o 
+
+# Compiling main.c which depends on calculator.h
+front.o: front.c front.h
+	$(CC) $(CFLAGS) -c main.c
+
+
+# Cleaning up object files and executable
+clean:
+	rm -f *.o main
